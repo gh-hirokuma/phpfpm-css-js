@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 <body>
+  <?php
+    $pdo = new PDO(
+      'mysql:host=db;dbname=sample',
+      'root',
+      'password',
+    );
+  ?>
   <h1 class="header">
     <?php echo "こんつわ PHP"; ?>
   </h1>
