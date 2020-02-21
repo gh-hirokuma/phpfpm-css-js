@@ -1,3 +1,5 @@
 $(function() {
-  console.log("hello");
+  $(".button").on("click", function() {
+    alert("clicked");
+  });
 });
