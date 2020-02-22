@@ -9,12 +9,32 @@
 </head>
 <body>
   <?php
-    $pdo = new PDO(
-      'mysql:host=db;dbname=sample',
-      'root',
-      'password',
-    );
+    $ignoreSites = ['us', 'sk'];
+    $siteCode = 'os';
+
+    switch ($siteCode) {
+      case 'os':
+        $element = "<div><h3>TITLE OS</h3>色々</div>";
+        $element2 = "<div><h3>TITLE OS</h3>色々</div>";
+        $element3 = "<div><h3>TITLE OS</h3>色々</div>";
+        $element4 = "<div><h3>TITLE OS</h3>色々</div>";
+        break;
+
+      case 'sk':
+        $element = "<div><h3>TITLE OS</h3>色々</div>";
+        $element2 = "<div><h3>TITLE OS</h3>色々</div>";
+        $element3 = "<div><h3>TITLE OS</h3>色々</div>";
+        break;
+
+      default:
+        break;
+    }
   ?>
+
+  <?php if (!in_array($siteCode, $ignoreSites)) {
+    echo $element4;
+  } ?>
+
   <h1 class="header">
     <?php echo "こんつわ PHP"; ?>
   </h1>
