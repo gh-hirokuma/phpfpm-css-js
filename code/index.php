@@ -11,13 +11,20 @@
   <?php
     $ignoreSites = ['us', 'sk'];
     $siteCode = 'os';
+    $isSignedIn = true;
+    $favoriteElem = "<button>Like</button>";
+    $menues = ['Home', 'Blog', 'Profile'];
+
+    function getInCommon ($elem) {
+      return "<div><h3>TITLE OS</h3>{$elem}</div>"
+    }
 
     switch ($siteCode) {
       case 'os':
-        $element = "<div><h3>TITLE OS</h3>色々</div>";
-        $element2 = "<div><h3>TITLE OS</h3>色々</div>";
-        $element3 = "<div><h3>TITLE OS</h3>色々</div>";
-        $element4 = "<div><h3>TITLE OS</h3>色々</div>";
+        $element = getInCommon("色々");
+        $element2 = getInCommon("色々2");
+        $element3 = getInCommon("色々3");
+        $element4 = getInCommon("色々4");
         break;
 
       case 'sk':
@@ -31,9 +38,25 @@
     }
   ?>
 
+  <?php if ($isSignedIn) {
+    echo $favoriteElem;
+  } ?>
+
+  <?php if ($person === "japanese" && $gender === 'male') {
+
+  } ?>
+
   <?php if (!in_array($siteCode, $ignoreSites)) {
     echo $element4;
   } ?>
+
+  <ul>
+    <?php
+      foreach ($menues as $menu) {
+          echo "<li>{$menu}</li>";
+      }
+    ?>
+  </ul>
 
   <h1 class="header">
     <?php echo "こんつわ PHP"; ?>
